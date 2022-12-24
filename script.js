@@ -17,3 +17,17 @@ function divi(a, b) {
 function pow(a, b) {
     return Math.pow(+a, +b);
 }
+
+function operate(a, b, oper) {
+    if(oper === '+') {
+        return add(a, b)
+    } else if(oper === '-') {
+        return sub(a, b)
+    } else if(oper === '*') {
+        return mult(a, b)
+    } else if(oper === '/') {
+        return divi(a, b)
+    } else if(oper === '^') {
+        return pow(a, b)
+    }
+}
