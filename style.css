@@ -12,14 +12,19 @@ body {
     justify-content: center;
     align-items: center;
     background-color: aquamarine;
-    padding: 12px;
+    padding: 16px;
     gap: 6px;
 }
 
 #screen {
-    width: 300px;
-    height: 60px;
+    width: 450px;
+    height: 150px;
     background-color: steelblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    padding: 16px;
+    display: flex;
+    justify-content: end;
 }
 
 #buttons, #operations {
@@ -28,6 +33,10 @@ body {
     width: 300px;
     gap: 4px;
     justify-content: center;
+}
+
+button {
+    height: 75px;
 }
 
 #buttons button {
