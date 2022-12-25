@@ -24,6 +24,8 @@ const diviOp = document.querySelector('#divi');
 const powOp = document.querySelector('#pow');
 const equalsOp = document.querySelector('#equals');
 
+const dot = document.querySelector("#nd");
+const backspace = document.querySelector('#backspace');
 const clear = document.querySelector('#clear');
 
 // Functions for the operations
@@ -93,6 +95,20 @@ seven.addEventListener('click', () => changeDisplayValue(7));
 eight.addEventListener('click', () => changeDisplayValue(8));
 nine.addEventListener('click', () => changeDisplayValue(9));
 zero.addEventListener('click', () => changeDisplayValue(0));
+dot.addEventListener('click', () => {
+
+    // If there are two lines of written out numbers,
+    if(screen.textContent.includes('\n')) { 
+        
+        /* Check only the second line for a '.', so 
+        that you can have a decimal point on each line */
+        if(!(screen.textContent.split('\n'))[1].includes('.')) {
+            changeDisplayValue('.');
+        }
+    } else if(!screen.textContent.includes('.')) {
+        changeDisplayValue('.');
+    }
+});
 
 addOp.addEventListener('click', () => {
     if(operation !== 'none') {
