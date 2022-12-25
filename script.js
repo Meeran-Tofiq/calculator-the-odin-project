@@ -99,7 +99,7 @@ dot.addEventListener('click', () => {
 
     // If there are two lines of written out numbers,
     if(screen.textContent.includes('\n')) { 
-        
+
         /* Check only the second line for a '.', so 
         that you can have a decimal point on each line */
         if(!(screen.textContent.split('\n'))[1].includes('.')) {
@@ -108,6 +108,9 @@ dot.addEventListener('click', () => {
     } else if(!screen.textContent.includes('.')) {
         changeDisplayValue('.');
     }
+});
+backspace.addEventListener('click', () => {
+    screen.textContent = screen.textContent.slice(0, screen.textContent.length - 1);
 });
 
 addOp.addEventListener('click', () => {
