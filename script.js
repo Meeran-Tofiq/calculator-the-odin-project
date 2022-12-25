@@ -1,6 +1,8 @@
 let displayValue = "";
 let a = "";
 let b = "";
+let operation = 'none';
+let num = [];
 
 const screen = document.querySelector("#screen");
 
@@ -23,6 +25,8 @@ const powOp = document.querySelector('#pow');
 const equalsOp = document.querySelector('#equals');
 
 const clear = document.querySelector('#clear');
+
+// Functions for the operations
 
 function add(a, b) {
     return +a + +b;
@@ -58,6 +62,20 @@ function operate(a, b, oper) {
     }
 }
 
+// Functions that the buttons do
+
+function changeDisplayValue(a) {
+    screen.textContent += a;
+}
+
+function clearDisplay() {
+    screen.textContent = "";
+}
+
+
+
+// EventListeners
+
 one.addEventListener('click', () => changeDisplayValue(1));
 two.addEventListener('click', () => changeDisplayValue(2));
 three.addEventListener('click', () => changeDisplayValue(3));
@@ -69,13 +87,37 @@ eight.addEventListener('click', () => changeDisplayValue(8));
 nine.addEventListener('click', () => changeDisplayValue(9));
 zero.addEventListener('click', () => changeDisplayValue(0));
 
+addOp.addEventListener('click', () => {
+    screen.textContent += "\n";
+    operation = '+';
+});
+
+subOp.addEventListener('click', () => {
+    screen.textContent += "\n";
+    operation = '-';
+});
+
+multOp.addEventListener('click', () => {
+    screen.textContent += "\n";
+    operation = '*';
+});
+
+diviOp.addEventListener('click', () => {
+    screen.textContent += "\n";
+    operation = '/';
+});
+
+powOp.addEventListener('click', () => {
+    screen.textContent += "\n";
+    window.operation = '^';
+});
+
+equalsOp.addEventListener('click', () => {
+    num = screen.textContent.split('\n');
+    displayValue = operate(num[0], num[1], operation);
+    clearDisplay();
+    changeDisplayValue(displayValue);
+});
+
 clear.addEventListener('click', () => clearDisplay());
 
-function changeDisplayValue(a) {
-    screen.textContent += a;
-}
-
-function clearDisplay() {
-    console.log("i ben presed")
-    screen.textContent = "";
-}
