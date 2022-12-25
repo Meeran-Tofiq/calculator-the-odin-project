@@ -57,7 +57,7 @@ function operate(a, b, oper) {
         return mult(a, b)
     } else if (oper === '/') {
         return divi(a, b)
-    } else if (oper === '^') {
+    } else if (oper === '**') {
         return pow(a, b)
     }
 }
@@ -109,7 +109,7 @@ diviOp.addEventListener('click', () => {
 
 powOp.addEventListener('click', () => {
     screen.textContent += "\n";
-    window.operation = '^';
+    operation = '**';
 });
 
 equalsOp.addEventListener('click', () => {
