@@ -72,6 +72,13 @@ function clearDisplay() {
     screen.textContent = "";
 }
 
+function equals() {
+    num = screen.textContent.split('\n');
+    displayValue = operate(num[0], num[1], operation);
+    clearDisplay();
+    changeDisplayValue(displayValue);
+    operation = 'none';
+}
 
 
 // EventListeners
@@ -88,35 +95,54 @@ nine.addEventListener('click', () => changeDisplayValue(9));
 zero.addEventListener('click', () => changeDisplayValue(0));
 
 addOp.addEventListener('click', () => {
+    if(operation !== 'none') {
+        equals();
+    }
+
     screen.textContent += "\n";
     operation = '+';
 });
 
 subOp.addEventListener('click', () => {
+    if(operation !== 'none') {
+        equals();
+    }
+
     screen.textContent += "\n";
     operation = '-';
 });
 
 multOp.addEventListener('click', () => {
+    if(operation !== 'none') {
+        equals();
+    }
+
     screen.textContent += "\n";
     operation = '*';
 });
 
 diviOp.addEventListener('click', () => {
+    if(operation !== 'none') {
+        equals();
+    }
+
     screen.textContent += "\n";
     operation = '/';
 });
 
 powOp.addEventListener('click', () => {
+    if(operation !== 'none') {
+        equals();
+    }
+
     screen.textContent += "\n";
     operation = '**';
 });
 
 equalsOp.addEventListener('click', () => {
-    num = screen.textContent.split('\n');
-    displayValue = operate(num[0], num[1], operation);
-    clearDisplay();
-    changeDisplayValue(displayValue);
+    if(operation !== 'none') {
+        equals();
+    }
 });
 
 clear.addEventListener('click', () => clearDisplay());
